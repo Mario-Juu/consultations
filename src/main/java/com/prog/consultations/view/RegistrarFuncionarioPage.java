@@ -23,6 +23,7 @@ public class RegistrarFuncionarioPage extends JFrame {
         setSize(new Dimension(500, 450));
         pack();
         setVisible(true);
+        setLocationRelativeTo(null);
         registrarButton.addActionListener(e -> {
             try{
                 funcionarioController.criarFuncionario(new Funcionario(TFNome.getText(), TFEmail.getText(), Integer.parseInt(TFIdade.getText()), TFTelefone.getText(), Integer.parseInt(TFAnoEntrada.getText()), TFCargo.getText(), TFSindicato.getText()));

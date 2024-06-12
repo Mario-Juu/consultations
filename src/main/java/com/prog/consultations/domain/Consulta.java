@@ -33,6 +33,9 @@ public class Consulta {
     @OnDelete(action = OnDeleteAction.SET_NULL)
     private Paciente paciente;
 
+    @Column(nullable = false)
+    private Boolean realizada = false;
+
     public Consulta(Date data, String hora, Medico medico, Paciente paciente) {
         this.data = data;
         this.hora = hora;

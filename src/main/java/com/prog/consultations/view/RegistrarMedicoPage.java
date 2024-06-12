@@ -25,6 +25,7 @@ public class RegistrarMedicoPage extends JFrame {
         setSize(new Dimension(500, 450));
         pack();
         setVisible(true);
+        setLocationRelativeTo(null);
         registrarButton.addActionListener(e -> {
             try{
             medicoController.criarMedico(new Medico(TextNome.getText(), TextEmail.getText(), Integer.parseInt(TextIdade.getText()), TextTelefone.getText(), Integer.parseInt(TextAnoEntrada.getText()), TextCRM.getText(), TextEspecialidade.getText(), TextClinica.getText()));

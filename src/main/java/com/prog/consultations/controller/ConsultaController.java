@@ -8,6 +8,8 @@ import com.prog.consultations.repository.ConsultaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +30,8 @@ public class ConsultaController {
         if(paciente.isEmpty()){
             throw new ResourceNotFoundException("Paciente não encontrado");
         }
+        Optional<Consulta> consulta = consultaRepository.findById(id);
+        validarRealizacao(consulta.get());
         return consultaRepository.findAllByPaciente(paciente.get());
     }
 
@@ -36,14 +40,25 @@ public class ConsultaController {
         if(medico.isEmpty()){
             throw new ResourceNotFoundException("Médico não encontrado");
         }
+        Optional<Consulta> consulta = consultaRepository.findById(id);
+        validarRealizacao(consulta.get());
         return consultaRepository.findAllByMedico(medico.get());
     }
 
     public Consulta buscarConsultaPorId(Long id){
+        Optional<Consulta> consulta = consultaRepository.findById(id);
+        validarRealizacao(consulta.get());
         return consultaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Consulta não encontrada"));
     }
 
+    public void validarRealizacao(Consulta consulta){
+        if(consulta.getData().before(Date.valueOf(LocalDate.now()))){
+            consulta.setRealizada(true);
+        }
+    }
+
     public Consulta criarConsulta(Consulta consulta){
+        validarRealizacao(consulta);
         return consultaRepository.save(consulta);
     }
 
@@ -54,6 +69,7 @@ public class ConsultaController {
 
     public Consulta atualizarConsulta(Consulta consulta){
         buscarConsultaPorId(consulta.getId());
+        validarRealizacao(consulta);
         return consultaRepository.save(consulta);
     }
 

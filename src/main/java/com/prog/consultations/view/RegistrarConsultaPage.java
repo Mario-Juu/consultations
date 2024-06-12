@@ -25,6 +25,7 @@ public class RegistrarConsultaPage extends JFrame{
         setSize(new Dimension(500, 450));
         pack();
         setVisible(true);
+        setLocationRelativeTo(null);
         registrarButton.addActionListener(e -> {
             try{
                 //Ano - 1900 pois Date adiciona 1900 no ano padrão. Mês + 1 pois Janeiro é 0

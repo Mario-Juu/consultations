@@ -103,6 +103,7 @@ public class InitPage {
         frame.setSize(new Dimension(500, 450));
         frame.pack();
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
 
         imprimirConsultasButton.addActionListener(e -> {
             try{
@@ -117,16 +118,17 @@ public class InitPage {
                 JOptionPane.showMessageDialog(null, "Não foi possível encontrar consultas associadas a esse e-mail.");
                 return;
             }
-            String[][] data = new String[consultas.size()][4];
+            String[][] data = new String[consultas.size()][5];
             for (int i = 0; i < consultas.size(); i++) {
                 data[i][0] = consultas.get(i).getData().toString();
                 data[i][1] = consultas.get(i).getHora();
                 data[i][2] = consultas.get(i).getMedico().getNome();
                 data[i][3] = consultas.get(i).getPaciente().getNome();
+                data[i][4] = consultas.get(i).getRealizada() ? "Sim" : "Não";
             }
             TableConsultas.setModel(new DefaultTableModel(
                     data,
-                    new String[]{ "Data", "Hora", "Médico", "Paciente"}
+                    new String[]{ "Data", "Hora", "Médico", "Paciente", "Realizada"}
             ){
                 public boolean isCellEditable(int rowIndex, int columnIndex){
                     return false;

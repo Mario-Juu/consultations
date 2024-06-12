@@ -33,6 +33,7 @@ public class EditarFuncionarioPage extends JFrame{
         setSize(new Dimension(500, 450));
         pack();
         setVisible(true);
+        setLocationRelativeTo(null);
 
         editarButton.addActionListener(e -> {
             try{

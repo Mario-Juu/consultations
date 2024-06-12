@@ -10,6 +10,7 @@ public class VisualizarMedicoPage extends JFrame {
     private JPanel JPVisMed;
     private JTextField TFEmail;
     private JButton visualizarButton;
+    private JButton visualizarTodosButton;
 
     public VisualizarMedicoPage(MedicoController medicoController) {
         setContentPane(JPVisMed);
@@ -17,6 +18,7 @@ public class VisualizarMedicoPage extends JFrame {
         setSize(500, 450);
         pack();
         setVisible(true);
+        setLocationRelativeTo(null);
 
         visualizarButton.addActionListener(new ActionListener() {
             @Override
@@ -28,6 +30,12 @@ public class VisualizarMedicoPage extends JFrame {
                     JOptionPane.showMessageDialog(null, "Erro ao visualizar médico");
                     ex.printStackTrace();
                 }
+            }
+        });
+        visualizarTodosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VisualizarTodosMedicosPage visualizarTodosMedicosPage = new VisualizarTodosMedicosPage(medicoController);
             }
         });
     }

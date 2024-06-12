@@ -21,6 +21,7 @@ public class RegistrarPacientePage extends JFrame {
         setSize(new Dimension(500, 450));
         pack();
         setVisible(true);
+        setLocationRelativeTo(null);
         registrarButton.addActionListener(e -> {
             try{
                 pacienteController.criarPaciente(new Paciente(TFNome.getText(), TFEmail.getText(), Integer.parseInt(TFIdade.getText()), TFTelefone.getText()));
