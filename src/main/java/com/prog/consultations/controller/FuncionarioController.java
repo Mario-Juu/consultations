@@ -25,7 +25,7 @@ public class FuncionarioController {
     }
 
     public Optional<Funcionario> buscarFuncionarioPorId(Long id){
-        return Optional.ofNullable(funcionarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Paciente não encontrado")));
+        return Optional.ofNullable(funcionarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Funcionário não encontrado")));
 
     }
 

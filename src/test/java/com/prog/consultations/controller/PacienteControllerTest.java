@@ -1,8 +1,6 @@
 package com.prog.consultations.controller;
 
 import com.prog.consultations.domain.Paciente;
-import com.prog.consultations.exception.EmailUsedException;
-import com.prog.consultations.exception.ResourceNotFoundException;
 import com.prog.consultations.repository.PacienteRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,6 +21,9 @@ public class PacienteControllerTest {
 
     @Mock
     PacienteRepository pacienteRepository;
+
+    @Mock
+    ValidationController validationController;
 
     Paciente paciente;
 

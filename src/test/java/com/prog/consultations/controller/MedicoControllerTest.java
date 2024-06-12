@@ -21,17 +21,17 @@ public class MedicoControllerTest {
 
     @Mock
     MedicoRepository medicoRepository;
+
+    @Mock
+    ValidationController validationController;
+
+
     Medico medico;
 
     @BeforeEach
     public void init() {
         MockitoAnnotations.openMocks(this);
-        medico = new Medico();
-        medico.setId(1L);
-        medico.setEmail("teste@gmail.com");
-        medico.setNome("Teste");
-        medico.setCrm("123456");
-        medico.setEspecialidade("Teste");
+        medico = new Medico("Teste", "teste@gmail.com", 30, "999999999", 2021, "123456", "Cardiologista", "Hospital");
     }
 
     @Test
@@ -69,6 +69,7 @@ public class MedicoControllerTest {
     public void testAtualizarMedico() {
         when(medicoRepository.findById(anyLong())).thenReturn(Optional.of(medico));
         when(medicoRepository.save(any())).thenReturn(medico);
-        assertNotNull(medicoController.atualizarMedico(medico.getId(), medico));
+        when(medicoRepository.findById(anyLong())).thenReturn(Optional.of(medico));
+        assertNotNull(medicoController.atualizarMedico(1L, medico));
     }
 }

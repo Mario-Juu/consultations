@@ -25,7 +25,7 @@ public class MedicoController {
     }
 
     public Optional<Medico> buscarMedicoPorId(Long id){
-        return Optional.ofNullable(medicoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Paciente não encontrado")));
+        return Optional.ofNullable(medicoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Médico não encontrado")));
 
     }
 
