@@ -27,9 +27,9 @@ Os usuários podem criar, atualizar e deletar pacientes, médicos e funcionário
 ## Como usar
 1. Abra IDE JetBrains IntelliJ 
 2. Clone o repositório no terminal
-   ```sh
-   git clone https://github.com/Mario-Juu/consultasPOO.git
-   ```
+```sh
+git clone https://github.com/Mario-Juu/consultasPOO.git
+ ```
 3. Crie o banco de dados pelo terminal (deverá ter Docker Engine instalado).
 ```sh
 docker run --name consultations -e MYSQL_ROOT_PASSWORD=secret -e MARIADB_MSQL_LOCALHOST_USER=true -p 3306:3306 -d mariadb:latest
