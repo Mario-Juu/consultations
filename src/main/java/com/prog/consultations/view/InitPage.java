@@ -120,6 +120,10 @@ public class InitPage {
             }
             String[][] data = new String[consultas.size()][5];
             for (int i = 0; i < consultas.size(); i++) {
+                if(consultas.get(i).getMedico() == null || consultas.get(i).getPaciente() == null){
+                    data[i][0] = "Consulta deletada.";
+                    continue;
+                }
                 data[i][0] = consultas.get(i).getData().toString();
                 data[i][1] = consultas.get(i).getHora();
                 data[i][2] = consultas.get(i).getMedico().getNome();
