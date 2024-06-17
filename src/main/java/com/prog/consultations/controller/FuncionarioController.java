@@ -52,12 +52,7 @@ public class FuncionarioController {
     }
 
     public Funcionario criarFuncionario(Funcionario funcionario){
-        if(validationController.validarEmail(funcionario.getEmail())){
-            throw new EmailUsedException("Email já cadastrado");
-        }
-        validationController.validarFormatoEmail((funcionario.getEmail()));
-        validationController.validarTelefone(funcionario.getTelefone());
-
+        validarCriacao(funcionario);
         return funcionarioRepository.save(funcionario);
     }
 
