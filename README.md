@@ -48,6 +48,8 @@ create database consultations;
 5. Execute o projeto.
 
 
-
+## Diagramas
+### Diagrama de Classes
+<img src="">
 
  
