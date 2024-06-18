@@ -50,6 +50,6 @@ create database consultations;
 
 ## Diagramas
 ### Diagrama de Classes
-<img src="">
+<img src="diagrama.jpg">
 
  
